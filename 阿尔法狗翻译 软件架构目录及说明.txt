@@ -1,0 +1,96 @@
+2022/12/20 
+完成开发端 封装 ：使用 setuptools封装 hello.py 功能性软件，利用命令行和pip，封装后安装并且成功卸载。
+比较花时间：命令行熟悉程度。
+
+步骤：
+1 了解python 主软件环境 与 虚拟环境 的区别
+主环境——
+	lib-标准库+第三方库，
+	scrips-py.exe+pip.exe
+虚拟环境——
+	无lib
+	scrips相同
+	插件可以是 局部，而不是全局，爱装哪个虚拟环境就装那个。
+2 使用setuptools工具包--制作蟒蛇蛋 python.egg
+	2.1 检查python 是否安装 pip 命令：py -m pip --version
+	2.2  在官网（翻墙）下载setuptools的pip copy ，最新<65.6.3>
+	    安装 命令：py -m pip install setuptools
+	2.3 查看 pip 是否安装成功
+	    安装命令：py -m pip -list
+	    可见setuptools 65.6.3
+	2.4 打开E盘文件夹  ，命令行：cd E:\UAV sofewave\text 
+	2.5 下载或更新 build 这个封装辅助工具，
+	    命令行：py -m pip install --upgrade build
+	    upgrade翻译 更新。报Successfully installed build-0.9.0
+     2.6 添加虚拟环境，目的保存或更新当前虚拟环境，形成requirements.txt文件
+		当在其他虚拟环境导入这个文件时，得到跟原来一样的虚拟环境。
+		命令行：py -m venv
+	2.7 在文件夹内 ，新建一个.py功能文件，准备用于封装实验
+	    命令行：\mypackage>type nul>hello.py
+	2.8 查询该文件夹有什么文件：
+	    命令行：\mypackage>dir
+	    显示：驱动器，序列号，目录
+	2.9 试在命令行运行该文件：
+                  命令行：py hello.py
+	2.10 封装 》》》
+	 	命令行：py setup.py sdist
+		显示removing 'hello-0.0.1' (and everything under it)
+		出现在该文件夹中一个dist文件，内含hello.py安装包，可用 pip 安装。
+ 
+	2.11 尝试 pip 安装 新封装的hello包
+		命令行：py -m pip install dist\hello-0.0.1.tar.gz
+		成功安装显示：Successfully installed hello-0.0.1
+		并且在pip list可见。
+         2.12 尝试 pip 卸载 新封装的hello包
+	    命令行：py -m pip uninstall hello
+	    命令行问 Proceed（Y/n）？Y
+	    显示：Successfully uninstalled hello-0.0.1
+
+在封装中，有以下几点需注意：
+	封装 蟒蛇蛋 必备文件有：
+	mypackage
+	├── pyproject.toml  # and/or setup.cfg/setup.py 
+	(depending on the configuration method)
+	--setup.py文件
+
+	|   # README.rst or README.md 
+	(a nice description of your package)
+	--README 文件
+
+	|   # LICENCE
+	 (properly chosen license information, e.g. MIT, BSD-3, 		GPL-3, MPL-2, etc...)
+	--LICENCE声明文件
+
+	└── mypackage
+    	├── __init__.py
+	--_init_.py文件
+
+    	└── ... (other Python files)
+	--以及其他python功能文件
+
+另外，
+1  文件夹 bin ：二进制binary存储文件。bin目录下存放的是项目调试之后的可运行文件。（尝试用vscode能打开）
+
+2 (disutils 已经废弃)
+  setuptools是Python 包安装源生态与分发-封装-工具。
+3 ::+全局变量名
+：：符号用法
+比如，两个人都叫张三，只想叫其中一个，怎么办?现实生活中，叫"大张""小张"来区别，在不同作用域内声明的变量可以同名，但如果局部变量和全局变量同名，在局部变量作用域内如何访问全局变量?C语言没有提供同名情况下访问全局变量的方法。在C++中，可以通过使用作用域限定符(::)(Scope Resolution Operator)来区别同名的全局变量但在C++中，当全局变量和局部变量名字相同，而重载时，就规定:用 "::+全局变量名" 来称呼全局变量。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
