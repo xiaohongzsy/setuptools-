@@ -13,7 +13,7 @@
 	插件可以是 局部，而不是全局，爱装哪个虚拟环境就装那个。
 2 使用setuptools工具包--制作蟒蛇蛋 python.egg
 	2.1 检查python 是否安装 pip 命令：py -m pip --version
-	2.2  在官网（翻墙）下载setuptools的pip copy ，最新<65.6.3>
+	2.2  在官网下载setuptools的pip copy ，最新<65.6.3>
 	    安装 命令：py -m pip install setuptools
 	2.3 查看 pip 是否安装成功
 	    安装命令：py -m pip -list
