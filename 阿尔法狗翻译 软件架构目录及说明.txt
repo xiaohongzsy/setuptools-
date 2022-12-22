@@ -176,6 +176,51 @@ XCOPY          复制文件和目录树。
 WMIC           在交互式命令 shell 中显示 WMI 信息。
 
 
+2022/12/22冬至
+学到python的sys系统库查询与操作系统接口关系，线程与进程关系。
+
+1 apis.py文件
+2 cli.py文件
+
+import sys 系统库sys的使用——链接操作系统和解释器的接口
+
+查版本信息类sys命令——
+sys.version 查python版本号
+sys.api_version 查解释器中的APi的版本号
+sys.getwindowsversion() 查Windows的版本号
+sys.hexversion 查python解释器的版本值
+sys.implementation 查当前python解释器的所有信息，包括名称，版本号等
+sys.winver 查python现用版本号，如3.7
+
+查四大详细信息sys命令——
+sys.float_info 查浮点类型能实现的信息，如最大最小能去到哪
+sys.hash_info 查哈希值的实现信息，如哈希模量，哈希宽度
+sys.int_info 查int整数值实现信息，如每个字的大小，
+sys.thread_info 查thread线程实现信息。
+	线程（英语：thread）是操作系统能够进行运算调度的最小单位。
+
+查看python解释器相关信息——
+sys.builtin_module_names 查所有内置的库的名称，如time库，math库
+sys.getallocatedblocks() 查解释器当前分配的内存块数，
+	此函数用于跟踪和调试内存泄漏，get查，allocated分配，blocks块，简称查内	存分配块。
+sys.getrecursionlimit() 查递归限制
+	get查，recursion递归，limit限制，获取当前的递归限制，就是解释器堆栈的最	大深度的值，该限制可防止无限递归导致C堆栈溢出和python崩溃，可通过setrecursionlimit（）来调整。
+sys.getswitchinterval()
+	get查 ，switch开关，查解释器的线程切换间隙。
+sys.implementation
+	implement执行，implementation实施，查正在运行的解释器正在实施的信息
+	name当前解释器名称
+	version版本
+	hexversion解释器版本
+	cache_tag缓存标记信息
+sys.is_finalizing() 查解释器是否关闭
+sys.orig_argv 查当前程序信息？（在Windows10执行失败？待查原因）
+sys.copyright 查版权信息
+sys.base_exec_prefix 查解释器安装路径
+sys.prefix 查安装路径
+
+标准输入，输出和错误流——
+查看系统平台相关信息 以及 其他输入
 
 
 
